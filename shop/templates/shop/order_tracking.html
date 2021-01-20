@@ -1,0 +1,116 @@
+{% extends './basic.html' %}
+{% load static %}
+{% load cart %}
+{% load custom_filter %}
+{% block title %}| Orders / Tracking {% endblock %}
+
+ {% block head %}    {% endblock %}
+
+	{% block style %}   {% endblock %}
+
+  {% block body %}
+
+   <section id="content">
+
+<div class="content-wrap bg-light">
+
+    <div class="container">
+        <article class="card1">
+            <header class="card-header" style="background-color:#ffb6b8 !important"> My Orders / Tracking </header>
+            <div class="card-body" style="background-color:#ffb6b8 !important">
+                <h6>Order ID: ODRADH-{{order.order_id}}</h6>
+                <article class="card">
+                    <div class="card-body row">
+                        <div class="col"> <strong>Delivery Date:</strong> <br>{{order.order_delevered_date|date:'Y-m-d'}} </div>
+                        <div class="col"> <strong>Shipping BY:</strong> <br> AshuDiHatt|<i class="fa fa-phone"></i> +91-7696270667 </div>
+                        {% if order.status == "OC" %}
+                          <div class="col"> <strong>Status:</strong> <br> Order confirmed </div>
+                        {% elif order.status == 'PBC' %}
+                            <div class="col"> <strong>Status:</strong> <br> Picked by courier </div>
+                    {% elif order.status == 'OTW' %}
+                        <div class="col"> <strong>Status:</strong> <br> On the way </div>
+                    {% elif order.status == 'RFP' %}
+                        <div class="col"> <strong>Status:</strong> <br> Ready for pickup </div>
+                    {% elif order.status == 'DEL' %}
+                           <div class="col"> <strong>Status:</strong> <br> Delevered </div>
+                    {% elif order.status == 'CAN' %}
+                          <div class="col"> <strong>Status:</strong> <br> Cancelled </div>
+                    {% endif %}
+                        <div class="col"> <strong>Order Date:</strong> <br> {{order.order_date|date:'Y-m-d'}} </div>
+                    </div>
+                </article>
+                <div class="track">
+                    {% if order.status == "OC" %}
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                    <div class="step"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                    <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                    <div class="step"> <span class="icon"> <i class="fas fa-box"></i> </span> <span class="text">Ready for pickup</span> </div>
+                     <div class="step"> <span class="icon"> <i class="icon-clipboard-check"></i> </span> <span class="text">Delivered</span> </div>
+
+                    {% elif order.status == 'PBC' %}
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                    <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                    <div class="step"> <span class="icon"> <i class="fas fa-box"></i> </span> <span class="text">Ready for pickup</span> </div>
+                     <div class="step"> <span class="icon"> <i class="icon-clipboard-check"></i> </span> <span class="text">Delivered</span> </div>
+                    {% elif order.status == 'OTW' %}
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                    <div class="step"> <span class="icon"> <i class="fas fa-box"></i> </span> <span class="text">Ready for pickup</span> </div>
+                     <div class="step"> <span class="icon"> <i class="icon-clipboard-check"></i> </span> <span class="text">Delivered</span> </div>
+                    {% elif order.status == 'RFP' %}
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fas fa-box"></i> </span> <span class="text">Ready for pickup</span> </div>
+                     <div class="step"> <span class="icon"> <i class="icon-clipboard-check"></i> </span> <span class="text">Delivered</span> </div>
+                    {% elif order.status == 'DEL' %}
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                    <div class="step active active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                    <div class="step active active"> <span class="icon"> <i class="fas fa-box"></i> </span> <span class="text">Ready for pickup</span> </div>
+                     <div class="step active active"> <span class="icon"> <i class="icon-clipboard-check"></i> </span> <span class="text">Delivered</span> </div>
+
+                    {% elif order.status == 'CAN' %}
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                    <div class="step active"> <span class="icon"> <i class="fas fa-box"></i> </span> <span class="text">Ready for pickup</span> </div>
+                     <div class="step active"> <span class="icon"> <i class="icon-remove"></i> </span> <span class="text">Cancelled</span> </div>
+
+                    {% endif %}
+
+                </div>
+                <hr>
+                <ul class="row">
+                    <li class="col-md-4">
+                        <figure class="itemside mb-3">
+                            <div class="aside"><img src="{{order.product.image1.url}}" class="img-sm border"></div>
+                            <figcaption class="info align-self-center">
+                                <p class="title">{{order.product.name}} <br> {{order.color}}</p> <span class="text-muted">{{order.price|currency}} </span>
+                            </figcaption>
+                        </figure>
+                    </li>
+
+
+                </ul>
+                <hr>
+                <a href="/profile/" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
+
+                {% if order.status == "OC" and flag %}
+                <a href="/profile/order/order_cancellation/{{order.product.name}}/{{order.order_id}}/" class="btn btn-warning" style="float:right" data-abc="true">Cancel <i class="icon-remove"></i></a>
+                {% endif %}
+            </div>
+        </article>
+    </div>
+    </div>
+    </section>
+    {% endblock %}
+
+{% block js %}
+
+
+{% endblock %}
+
+

@@ -1,0 +1,169 @@
+{% extends './basic.html' %}
+{% load static %}
+{% load cart %}
+{% load custom_filter %}
+{% block title %}| Product Discription{% endblock %}
+
+ {% block head %}    {% endblock %}
+
+	{% block style %}   {% endblock %}
+
+  {% block body %}
+
+	<!-- Page Title
+	============================================= -->
+    {% if allprods %}
+	<section id="page-title">
+			   <div class="mx-auto center bottommargin" style="max-width: 700px">
+						<h2> Search results for {{q}}</h2>
+			</div>
+	</section><!-- #page-title end -->
+    {% endif %}
+
+<!-- Content
+	============================================= -->
+	<section id="content">
+		<div class="content-wrap">
+
+            {% if allprods %}
+			<div class="container clearfix">
+
+				<div class="row gutter-40 col-mb-80">
+				<!-- Post Content
+					============================================= -->
+					<div class="postcontent col-lg-9 order-lg-last">
+
+						<!-- Shop
+							============================================= -->
+							<div id="shop" class="shop row grid-container gutter-20" data-layout="fitRows">
+
+								{%  for i in allprods %}
+								<div class="product col-md-4 col-sm-6 sf-dress">
+								  <div class="grid-inner">
+									  <div class="product-image" id="{{i.sr_no}}">
+												<a href="/product_detail/{{ i.name }}/{{ i.sr_no }}/"><img src="{{i.image1.url}}"></a>
+												{% if i.image2 %}
+												<a href="/product_detail/{{i.id}}"><img src="{{i.image2.url}}" ></a>
+												{% endif %}
+												{% if i.lable %}
+												<div class="sale-flash badge badge-success p-2">{{i.lable}}</div>
+												{% endif %}
+												{% if i.stock < 1 %}
+												<div class="sale-flash1 badge badge-danger p-2" id="{{i.id}}" value="Out">Out of Stock</div>
+												{% endif %}
+												<script type="text/javascript">grayfunc("{{i.sr_no}}","{{i.id}}");</script>
+
+											</div>
+
+
+
+
+                    <div class="product-desc">
+						<a href="/product_detail/{{i.name}}/{{i.sr_no}}/"><button  class="btn btn-sm " class="product-title" style="color: white; width: 100%;" class="margin-left" >Shop Now</button></a>
+                      <div class="product-title"><h3><a href="/product_detail/{{i.name}}/{{i.sr_no}}/">{{i.name|slice:30}}...</a></h3></div>
+                        {% if i.price == 0 %}
+												<div class="product-price">
+												<ins>{{i.discount_price|currency}}</ins>
+												</div>
+												{% else %}
+												<div class="product-price">
+												<del>{{i.price|currency}}</del> <ins>{{i.discount_price|currency}}</ins>
+													</div>
+												{% endif %}
+
+                    </div>
+                  </div>
+               					 </div>
+								{% endfor %}
+
+
+
+							</div>
+
+						<!-- #shop end -->
+
+					</div>
+					<!-- .postcontent end -->
+					<!-- Sidebar
+					============================================= -->
+					<div class="sidebar col-lg-3">
+						<div class="sidebar-widgets-wrap">
+
+							<div class="widget widget-filter-links">
+								<h4>Sort By Price</h4>
+								<ul class="shop-sorting pl-2">
+
+
+
+										<li class="active-filter"><a href="/search/?q={{q}}" data-sort-by="original-order">Clear</a></li>
+										<li><a href="/search/?q={{q}}&filterby=Low-to-High">Price: Low to High</a></li>
+										<li><a href="/search/?q={{q}}&filterby=High-to-Low">Price: High to Low</a></li>
+
+								</ul>
+							</div>
+						</div>
+					</div><!-- .sidebar end -->
+				</div>
+
+			</div>
+                                                {% if allprods.has_next or allprods.has_previous %}
+												  <ul class="pagination mt-5 pagination-circle justify-content-center">
+													  {% if allprods.has_previous %}
+															{%  if filter != None %}
+																<li class="page-item"><a class="page-link" href="/search/?q={{q}}&filterby={{filter}}&page={{allprods.previous_page_number}}"><i class="icon-angle-left"></i></a></li>
+																{% else %}
+																<li class="page-item"><a class="page-link" href="/search/?q={{q}}&page={{allprods.previous_page_number}}"><i class="icon-angle-left"></i></a></li>
+															{% endif %}
+													  {% endif %}
+
+
+
+														 {% for p in allprods.paginator.page_range %}
+																{% if allprods.number == p %}
+													  				{%  if filter != None %}
+																	<li class="page-item active"><a class="page-link" href="/search/?q={{q}}&filterby={{filter}}&page={{p}}">{{p}}</a></li>
+													  				{% else %}
+													  				<li class="page-item active"><a class="page-link" href="/search/?q={{q}}&page={{p}}">{{p}}</a></li>
+																	{% endif %}
+
+																{% else %}
+																	{% if filter != None %}
+																	<li class="page-item"><a class="page-link" href="/search/?q={{q}}&filterby={{filter}}&page={{p}}">{{p}}</a></li>
+													  				{% else %}
+													  				<li class="page-item"><a class="page-link" href="/search/?q={{q}}&page={{p}}">{{p}}</a></li>
+																	{% endif %}
+																{% endif %}
+														 {% endfor %}
+
+													  {% if allprods.has_next %}
+
+														{% if filter != None %}
+														<li class="page-item"><a class="page-link" href="/search/?q={{q}}&filterby={{filter}}&page={{allprods.next_page_number}}"><i class="icon-angle-right"></i></a></li>
+														{% else %}
+													  	<li class="page-item"><a class="page-link" href="/search/?q={{q}}&page={{allprods.next_page_number}}"><i class="icon-angle-right"></i></a></li>
+													  	{% endif %}
+													  {% endif %}
+												  </ul>
+											{% endif %}
+            {% else %}
+                                <div class="container my-5">
+								    <h1>Your search for "{{q}}" did not yield any results.</h1>
+								</div>
+            {% endif %}
+		</div>
+	</section><!-- #content end -->
+
+    {% endblock %}
+
+{% block js %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

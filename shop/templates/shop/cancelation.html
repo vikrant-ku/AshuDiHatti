@@ -1,0 +1,58 @@
+{% extends './basic.html' %}
+{% load static %}
+
+{% block title %}| Order Cancellation{% endblock %}
+
+ {% block head %}    {% endblock %}
+
+	{% block style %}   {% endblock %}
+
+  {% block body %}
+<section id="content">
+	<div class="content-wrap bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-10">
+                <div class="card my-5 shadow-sm">
+                    <div class="card-body p-5">
+                        <h4 class="ls4 center">Order Cancellation Form</h4>
+                        <div class="divider divider-sm divider-center text-dark"><i class="icon-heart21"></i></div>
+                                    <form   method="post" action="/profile/order/order_cancellation/{{order.product.name}}/{{order.order_id}}/">{% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-12 center mb-5">
+                                                <h4 class="font-secondary font-italic ls3">As per our policies, order cancellation is only accepted within 24 hours of order placement. Once the order is shipped, we donot accept order cancellation.</h4>
+                                               <h2 class="font-secondary font-italic h1">AshuDiHatti Phagwara</h2>
+                                           </div>
+                                            <div class="col-12 form-group">
+
+                                                <input type="hidden"  name="order_id" value="{{order.order_id}}"  />
+                                            </div>
+                                            <div class="col-12 form-group"> 
+                                                 <label for="template-wedding-attending-side">Reason?</label>
+                                                <select id="template-wedding-attending-side" name="reason" class="form-control required" required>
+                                                    <option value="" disabled selected>Select Your Reason</option>
+                                                    <option value="Wrong Color">Wrong Color</option>
+                                                    <option value="Placed order by mistake">Placed order by mistake</option>
+                                                    <option value="Need to add more products">Need to add more products</option>
+                                                    <option value="Placed at the wrong address">Placed at the wrong address</option>
+                                                    <option value="Need to remove one or more product from the order">Need to remove one or more product from the order</option>
+
+                                                </select>
+                                            </div>
+                                            <div class="col-12 form-group">
+                                            <button type="submit">submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	</div>
+</section>
+
+  {% endblock %}
+{% block js %}    {% endblock %}
+

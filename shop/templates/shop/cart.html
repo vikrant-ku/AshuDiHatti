@@ -1,0 +1,171 @@
+{% extends './basic.html' %}
+{% load static %}
+{% load cart %}
+{% load custom_filter %}
+{% block title %}| Cart{% endblock %}
+
+ {% block head %}
+<script>
+
+</script>
+
+
+{% endblock %}
+
+	{% block style %}
+
+{% endblock %}
+
+  {% block body %}
+	<section id="content">
+			<div class="content-wrap">
+				<div class="container">
+
+					<div class="table-responsive mb-5">
+						{% if prod %}
+
+								<table class="table cart">
+							<thead>
+								<tr>
+									<th class="cart-product-remove">&nbsp;</th>
+									<th class="cart-product-thumbnail">&nbsp;</th>
+									<th class="cart-product-name">Product</th>
+									<th class="cart-product-price">Unit Price</th>
+									<th class="cart-product-quantity">Quantity</th>
+									<th class="cart-product-subtotal">Total</th>
+									<th class="cart-product-subtotal"></th>
+								</tr>
+							</thead>
+
+							<tbody>
+                                     {% for i in prod %}
+
+								<tr class="cart_item">
+									<td class="cart-product-remove">
+										<a href="/cart/{{i.id}}" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
+
+									</td>
+
+									<td class="cart-product-thumbnail">
+										<a href="/product_detail/{{i.name}}/{{i.sr_no}}/"><img width="64" height="64" src="{{i.image1.url}}" alt="Pink Printed Dress"></a>
+									</td>
+
+									<td class="cart-product-name">
+										<a href="/product_detail/{{i.name}}/{{i.sr_no}}/">{{i.name}}</a>
+									</td>
+
+									<td class="cart-product-price">
+
+										<span class="amount">{{i.discount_price|currency}}</span>
+
+									</td>
+									<form method="post" action="/cart/update_item/" id="cart{{i.id}}" >
+ 											{% csrf_token %}
+										<td class="cart-product-quantity">
+											<div class="quantity">
+												<input type="hidden" value="{{i.id}}" name="p_id">
+												<input type="hidden" value="{{i.stock}}" id="s{{i.id}}">
+
+												<input type="button" value="-"  onclick="minus({{i.id}})">
+												<input type="text" name="quantity" id="{{i.id}}" value="{{i|cart_quantity:request.session.cart}}" class="qty" />
+
+												<input type="button" value="+"  onclick="plus({{i.id}})">
+											</div>
+										</td>
+
+										<td class="cart-product-subtotal">
+											<span class="amount">{{i|price_total:request.session.cart|currency}}</span>
+
+										</td>
+
+										</form>
+								</tr>
+
+
+									{% endfor %}
+
+								<tr class="cart_item">
+									<td colspan="12">
+										<div class="row">
+											<div class="col-lg-4 col-4 p-0">
+
+											</div>
+											<div class="col-lg-8 col-8 p-0">
+
+
+												 <a href="/cart/checkout/"><div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" type="button">Proceed to Checkout</button></div></a>
+
+
+											</div>
+										</div>
+									</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+
+						{% else %}
+                        <div class="container">
+                        <center> <img src="{% static 'images/aashuimage/cart-icon.png' %}" width="200" height="200">
+						<h3 class="my-3">Looks like you have no items in your shopping cart.</h3>
+
+						</center>
+						</div>
+                        <a href="/"><div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" type="button">Start shopping</button></div></a>
+                            {% endif %}
+					</div>
+
+
+
+
+				</div>
+			</div>
+        </section>
+
+
+
+
+{% endblock %}
+{% block js %}
+<script>
+
+
+
+		function plus(e){
+
+			var quantity = parseInt(document.getElementById(e).value);
+			var stock = parseInt(document.getElementById('s'+e).value);
+							if (quantity < stock) {
+								quantity = quantity + 1;
+								document.getElementById(e).value = quantity
+								document.getElementById('cart'+e).submit()
+								}
+
+		};
+		function minus(e){
+			var quantity = parseInt(document.getElementById(e).value);
+			var stock = parseInt(document.getElementById('s'+e).value);
+			if (quantity > 1) {
+				quantity = quantity - 1 ;
+				document.getElementById(e).value = quantity
+				document.getElementById('cart'+e).submit()
+				}
+
+		};
+
+	</script>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

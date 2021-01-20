@@ -1,0 +1,125 @@
+{% extends './basic.html' %}
+{% load static %}
+
+{% block title %}| Contact Us{% endblock %}
+
+ {% block head %}    {% endblock %}
+
+	{% block style %}   {% endblock %}
+
+  {% block body %}
+
+
+
+  <div class="tm-row">
+                <div class="tm-col-left"></div>
+                <main class="tm-col-right">
+                    <section class="tm-content">
+                        <div class="media my-3 mb-5 tm-service-media tm-service-media-img-l">
+                            <img src="{% static 'images/aashuimage/about/services-1.png' %}" alt="Image" class="tm-service-img">
+                            <div class="media-body tm-service-text">
+                                <h2 class="mb-4 tm-content-title">Why Choose Us</h2>
+                                <p> Ashu Di Hatti is the one-stop destination for all the fashion freaks out there!!! From stunning suits to elegant party wear to gorgeous bridal lehengas, we have everything to match the taste of all the wonderful ladies out there!!!</p>
+                            </div>
+                        </div>
+                        <div class="media my-3 mb-5 tm-service-media">
+                            <div class="media-body tm-service-text">
+                                <h2 class="mb-4 tm-content-title">Best Online Store For Bridal Outfits</h2>
+                                <p> From stunning suits to elegant party wear to gorgeous bridal lehengas, we have everything to match the taste of all the wonderful ladies out there!!!
+                                </p>
+                            </div>
+                            <img src="{% static 'images/aashuimage/about/service-2.png' %}" alt="Image" class="tm-service-img-r">
+                        </div>
+                        <div class="media my-3 tm-service-media tm-service-media-img-l">
+                            <img src="{% static 'images/aashuimage/about/services-3.png' %}" alt="Image" class="tm-service-img">
+                            <div class="media-body tm-service-text">
+                                <h2 class="mb-4 tm-content-title">Looking classy is now just a click away.</h2>
+                                <p>Don’t lose heart you gorgeous men, we also have an exquisite collection of men’s wear, for every occasion. From casuals to formals, to ethnic, you’ll surely find everything you are looking for. </p>
+
+                            </div>
+                        </div>
+                    </section>
+                </main>
+
+        <main class="tm-col-left tm-contact-main tm-content-left"> <!-- Content -->
+
+<!-- Content
+		============================================= -->
+		<section id="content" >
+			<div class="content-wrap py-0">
+					<div class="container-fluid py-5 mx-auto" >
+						<div class="card mx-auto rounded-0 border-0" style="max-width: 400px;">
+						<h2 class="mb-4 tm-content-title">Get In Touch</h2>
+													<form method="post" class="row mb-0" action="/contact_us/" > {% csrf_token %}
+													<div class="col-12 form-group">
+                                                        <label >Name <small>*</small></label>
+                                                        <input type="text" id='nameInput' class=" sm-form-control" name="name" class="sm-form-control required" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)) ' required>
+													
+														</div>
+
+														<div class="col-12 form-group">
+														<label >Email <small>*</small></label>
+														<input type="text" class=" sm-form-control" id="email" name="email"  class="sm-form-control required" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$" required>
+														</div>
+
+
+														<div class="col-12 form-group">
+														<label >Phone <small>*</small></label>
+														<input type="text" class=" sm-form-control"  name="number" minlength="10"maxlength="13" onkeypress="return isNumberKey(event)"  class="sm-form-control required" placeholder="Mobile Number"required>
+														</div>
+
+														<div class="col-12 form-group">
+															<label for="template-contactform-message">Message <small>*</small></label>
+															<textarea class=" sm-form-control" id="template-contactform-message" name="message" rows="6" cols="30" required></textarea>
+														</div>
+
+
+														<div class="col-12 form-group">
+                                                            <button  class="btn btn-sm " type="submit" style="color: white;" >submit</button>      
+													
+														</div>
+													</form>
+
+						</div>
+						<div class="media my-3 tm-service-media tm-service-media-img-l">
+                            <img src="{% static 'images/aashuimage/about/service-4.png' %}" alt="Image" class="tm-service-img">
+                            <div class="media-body tm-service-text">
+                                <h2 class="mb-4 tm-content-title">Ashu Di Hatti- luxurious fashion at wholesale price!!! <br>Because being fashionable does not always have to be heavy on your pockets :).</h2>
+
+                            </div>
+                        </div>
+					</div>
+
+			  </div>
+
+		</section><!-- #content end -->
+
+      </main>
+
+ </div>
+
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+  function isNumberKey(evt){
+        //var e = evt || window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode != 46 && charCode > 31
+        && (charCode < 48 || charCode > 57))
+            return false;
+            return true;
+        }
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+

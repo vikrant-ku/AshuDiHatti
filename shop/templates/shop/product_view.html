@@ -1,0 +1,247 @@
+{% extends './basic.html' %}
+{% load static %}
+{% load cart %}
+{% load custom_filter %}
+{% block title %}| Product View{% endblock %}
+
+ {% block head %}    {% endblock %}
+
+{% block style %}
+
+<style>
+
+	.sale-flash1.badge.badge-danger.p-2 {
+    position: absolute;
+    top: 47px;
+    left: 9px;
+}
+</style>
+
+{% endblock %}
+
+  {% block body %}
+
+    <!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					<div class="single-product">
+						<div class="product">
+							<div class="row gutter-40">
+
+								<div class="col-md-6">
+                                <h2>{{ product.name }}</h2>
+
+
+									<!-- Product Single - Gallery
+									============================================= -->
+									<div class="product-image" id="gray">
+										<div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
+											<div class="flexslider">
+												<div class="slider-wrap" data-lightbox="gallery">
+													<div class="slide" data-thumb="{{ product.image1.url }}"><a href="{{ product.image1.url }}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img class="drift-demo-trigger"
+                                                        data-zoom="{{ product.image1.url }}" src="{{ product.image1.url }}"></a></div>
+													{% if product.image2 %}
+													<div class="slide" data-thumb="{{ product.image2.url }}"><a href="{{ product.image2.url }}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img class="drift-demo-trigger"
+                                                        data-zoom="{{ product.image2.url }}" src="{{ product.image2.url }}"></a></div>
+													{% endif %}
+													{% if product.image3 %}
+													<div class="slide" data-thumb="{{ product.image3.url }}"><a href="{{ product.image3.url }}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img class="drift-demo-trigger"
+                                                        data-zoom="{{ product.image3.url }}" src="{{ product.image3.url }}"></a></div>
+													{% endif %}
+													{% if product.image3 %}
+													<div class="slide" data-thumb="{{ product.image4.url }}"><a href="{{ product.image4.url }}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img class="drift-demo-trigger"
+                                                        data-zoom="{{ product.image4.url }}" src="{{ product.image4.url }}"></a></div>
+													{% endif %}
+
+												</div>
+											</div>
+										</div>
+										{% if product.lable %}
+										<div class="sale-flash badge badge-success p-2" >{{product.lable}}</div>
+										{% endif %}
+										{% if product.stock < 1 %}
+										<div class="sale-flash1 badge badge-danger p-2" id="sold" value="Out">Out of Stock</div>
+										{% endif %}
+									</div><!-- Product Single - Gallery End -->
+								</div>
+
+								<div class="col-md-6 product-desc detail">
+
+									<div class="d-flex align-items-center justify-content-between">
+
+
+										<!-- Product Single - Price
+										============================================= -->
+											{% if product.price == 0 %}
+										<div class="product-price"> <ins>{{product.discount_price|currency}}</ins></div>
+										{% else %}
+										<div class="product-price"><del>{{product.price|currency}}</del> <ins>{{product.discount_price|currency}}</ins></div>
+										{% endif %}
+
+										<!-- Product Single - Price End -->
+
+										<!-- Product Single - Rating
+										============================================= -->
+										<div class="d-flex align-items-center">
+											<div class="product-rating">Rating :
+											{% if product.rating == 3  %}
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star-empty"></i>
+											<i class="icon-star-empty"></i>
+											{% elif product.rating == 4  %}
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star-empty"></i>
+											{% elif product.rating == 5  %}
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											<i class="icon-star3"></i>
+											{% endif %}
+
+										</div><!-- Product Single - Rating End -->
+
+										</div>
+
+									</div>
+
+									<div class="line"></div>
+
+									<!-- Product Single - Quantity & Cart Button
+									============================================= -->
+									{% if product.category.slug != "handloom" %}
+										<form class="cart mb-0 d-flex justify-content-between align-items-center" id="cartform" onsubmit="return validateForm()"   name="cart" action="/cart/" method="post" enctype='multipart/form-data'>
+									{% csrf_token %}
+											{% if 'customer_id' in request.session %}
+												{% if product.stock < 1 %}
+													<div class="quantity clearfix"></div>
+
+													<button type="button" style="background:gray" class="button m-0">Sold</button>
+
+												{% elif flag %}
+													<div class="quantity clearfix"></div>																										
+													<a href="\cart\"><button  class="btn btn-sm  thar-three " type="button" >Go to Cart</button>   </a>
+												{% else %}
+													<div class="quantity clearfix">
+														<input type="button" value="-" onclick="minus()">
+														<input type="number" step="1" min="1" name="quantity" id="qty" value="1" title="Qty" class="qty" />
+														<input type="button" value="+" onclick= "plus()">
+														<input type="hidden" value="{{product.id}}" name="product_id">
+														<input type="hidden" class="prod_color" value="{{product.color}}" name="product_color">
+														<input type="hidden"  value="{{product.stock}}" id="p_stock">
+													</div>
+													<button  class="btn btn-sm  thar-three " type="submit" >Add To Cart</button>   
+											
+												{% endif  %}
+											{% else %}
+												<div class="quantity clearfix"></div>
+
+													<a href="/login?return_url=/product_detail/{{product.name}}/{{product.sr_no}}/"><button  class="btn btn-sm  thar-three " type="button" >Login</button></a>
+											{% endif %}
+										</form>
+									<!-- Product Single - Quantity & Cart Button End -->
+									{% else %}
+									<h6>This product not available for online shopping</h6>
+									{% endif %}
+									<div class="line"></div>
+
+									<!-- Product Single - Short Description
+									============================================= -->
+                                    <h2>Description</h2>
+									<p>{{product.description}}</p>
+									<h2>Specification</h2>
+									<p>{{product.specification}}</p>
+
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item d-flex justify-content-between align-items-center px-0">
+											<span class="text-muted">Category:</span><span class="text-dark font-weight-semibold">{{product.category.name}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center px-0">
+											<span class="text-muted">Color:</span><span class="text-dark font-weight-semibold">{{product.color}}</span>
+										</li>
+
+
+									</ul>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+    {% endblock %}
+
+{% block js %}
+
+<script>
+		var stock = parseInt($("#p_stock").val());
+		var quantity = parseInt($("#qty").val());
+		function plus(){
+			if (quantity < stock) {
+				quantity = quantity + 1;
+				$("#qty").val(quantity)
+				}
+
+		};
+		function minus(){
+			if (quantity > 1) {
+				quantity = quantity - 1 ;
+				$("#qty").val(quantity)
+				}
+		};
+
+
+
+		let tempvar = document.getElementById('sold').getAttribute('value')
+			console.log(tempvar)
+				if ( tempvar = 'Out'){
+					document.getElementById('gray').className+=' black'
+					}
+</script>
+<script>
+
+    var thumbs = document.querySelectorAll('.drift-demo-trigger');
+var para = document.querySelector('p');
+
+for (var i = 0, len = thumbs.length; i < len; i++) {
+  var thumb = thumbs[i];
+
+  new Drift(thumb, {
+    paneContainer: document.querySelector('.detail'),
+  });
+}
+
+// Using jQuery to demo AJAX loading
+var moreThumbsContainer = $('.detail');
+
+moreThumbsContainer.load('productv.html', function() {
+  moreThumbsContainer.find('.detail').each(function(i, el) {
+    new Drift(el, {
+      paneContainer: detail
+    });
+  });
+});
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+

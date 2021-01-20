@@ -1,0 +1,651 @@
+{% extends './basic.html' %}
+{% load static %}
+{% block title %}| Home{% endblock %}
+{% block head %} 
+ <script>
+		 function grayfunc1(e)
+    		 {
+			document.getElementById(e).className+=' black';
+			}
+	</script>
+{% endblock %}
+
+{% block body %}
+<div class="modal animated fadeInUp fast pr-0" id="modal-subscribe" role="dialog" displayed="false" data-backdrop="static">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body" style="background-color: none !important;">
+				<button type="button" class="close position-relative" data-dismiss="modal" aria-label="Close" style="z-index: 1">
+					<span aria-hidden="true">&times;</span>
+				</button>					
+					<h2 class="font-weight-bold h1 mb-3" style="letter-spacing: -2px">Get Special Discount!</h2>
+					<p>Subscribe to Our Newsletter to get Amazing Offers & Inside Scoops:</p>
+
+					<form   method="post" action="/subscriber/">	 {% csrf_token %}
+						<div class="col-12 form-group">                                 
+						  <input type="text" placeholder="  Enter Email Id" name="subscribe-email" pattern="[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$" class="form-control" required >
+						 </div> 
+						 <div class="col-12 form-group">               
+							  <button  class="btn btn-sm animated-button thar-three " type="submit" >submit</button>                                                 
+							   </div>
+					   </form>    
+					<div class="text-center">
+						<small class="text-black-50 mt-1"><em>We never send SPAM to your Email</em></small>
+					</div>
+
+		
+			</div>
+		</div>
+	</div>
+</div>
+    <!-- Slider of homepage Start-->
+							<section id="slider" class="slider-element slider-parallax revslider-wrap overflow-hidden clearfix">
+								<!--
+								#################################
+									- THEMEPUNCH BANNER -
+								#################################
+								-->
+								<div id="rev_slider_ishop_wrapper" class="rev_slider_wrapper fullwidth-container" data-alias="default-slider" style="padding:0px;">
+										<!-- START REVOLUTION SLIDER 5.1.4 fullwidth mode -->
+									<div id="rev_slider_ishop" class="rev_slider fullwidthbanner" style="display:none;" data-version="5.1.4">
+										<ul>
+												<!-- SLIDE  -->
+											<li data-transition="slideup" data-slotamount="1" data-masterspeed="1500" data-delay="5000"  data-saveperformance="off"  data-title="Messenger bags" style="background-color: #E9E8E3;">
+												<!-- LAYERS -->
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="630"
+												data-y="78"
+												data-transform_in="x:250;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;s:400;e:Power4.easeOutQuad;"
+												data-speed="400"
+												data-start="1000"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"><img src="{% static 'images/aashuimage/home/slider/men.png' %}" alt="Bag"></div>
+
+												<!-- LAYER NR. 2 -->
+												<div class="tp-caption ltl tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="0"
+												data-y="110"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1000"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f;">Buy Men's Wear at Discounted Prices</div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-emphasis-text p-0 border-0"
+												data-x="0"
+												data-y="140"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1200"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f; line-height: 1.15;  font-family: Sofia; ">Mens Collection</div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-desc-text text-left"
+												data-x="0"
+												data-y="240"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1400"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f; max-width: 550px; white-space: normal;">Stay classy and comfortable with our stunning collection of Men’s clothing</div>
+
+												<div class="tp-caption ltl tp-resizeme"
+												data-x="0"
+												data-y="340"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1550"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"><a href="/shop/MEN/" class="button button-border button-large button-rounded text-right m-0"  style="background-color:#99073b; color:#f1c338;"><span>Start Shopping</span> <i class="icon-angle-right"></i></a></div>
+
+												<div class="tp-caption utb tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="510"
+												data-y="0"
+												data-transform_in="x:0;y:-236;z:0;rotationZ:0;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="600"
+												data-start="2100"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"></div>
+
+											</li>
+										   <!-- SLIDE  -->
+											<li data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="5000" data-saveperformance="off" data-title="Latest Collections" style="background-color: #F6F6F6;">
+												<!-- LAYERS -->
+
+												<!-- LAYER NR. 2 -->
+												<div class="tp-caption ltl tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="100"
+												data-y="50"
+												data-transform_in="x:-200;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="400"
+												data-start="1000"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"><img src="{% static 'images/aashuimage/home/slider/women.png' %}" alt="Girl"></div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="570"
+												data-y="75"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1000"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f;">Buy Women's Wear at Discount Prices</div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-emphasis-text p-0 border-0"
+												data-x="570"
+												data-y="105"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1200"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f; max-width: 430px; line-height: 1.15; font-family: Sofia;">Women's<br>Collections</div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-desc-text text-left"
+												data-x="570"
+												data-y="275"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1400"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f; max-width: 550px; white-space: normal;">Embrace the desi in you, with our magnificent ethnic wear &amp;  Channel your inner royalty, in our exquisite lehengas</div>
+
+												<div class="tp-caption ltl tp-resizeme"
+												data-x="570"
+												data-y="375"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1550"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"><a href="/shop/WOMEN/" class="button button-border button-large button-rounded text-right m-0"   style="background-color:#99073b; color:#f1c338;"><span>Start Shopping</span> <i class="icon-angle-right"></i></a></div>
+
+											</li>
+											<!-- SLIDE  -->
+											<li data-transition="slideup" data-slotamount="1" data-masterspeed="1500" data-delay="5000"  data-saveperformance="off"  data-title="Messenger bags" style="background-color: #E9E8E3;">
+												<!-- LAYERS -->
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="630"
+												data-y="78"
+												data-transform_in="x:250;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;s:400;e:Power4.easeOutQuad;"
+												data-speed="400"
+												data-start="1000"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"><img src="{% static 'images/aashuimage/home/slider/handlooms.png' %}" alt="Bag"></div>
+
+												<!-- LAYER NR. 2 -->
+												<div class="tp-caption ltl tp-resizeme revo-slider-caps-text text-uppercase"
+												data-x="0"
+												data-y="110"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1000"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f;">Buy  Handlooms at Discounted Prices</div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-emphasis-text p-0 border-0"
+												data-x="0"
+												data-y="140"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1200"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f; line-height: 1.15; font-family: Sofia;">Handlooms</div>
+
+												<div class="tp-caption ltl tp-resizeme revo-slider-desc-text text-left"
+												data-x="0"
+												data-y="240"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1400"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn" style=" color: #730e0f; max-width: 550px; white-space: normal;"> Stay warm and cozy this winter, only with Ashu Di Hatti</div>
+
+												<div class="tp-caption ltl tp-resizeme"
+												data-x="0"
+												data-y="340"
+												data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
+												data-speed="700"
+												data-start="1550"
+												data-easing="easeOutQuad"
+												data-splitin="none"
+												data-splitout="none"
+												data-elementdelay="0.01"
+												data-endelementdelay="0.1"
+												data-endspeed="1000"
+												data-endeasing="Power4.easeIn"><a href="shop/HANDLOOM/" class="button button-border button-large button-rounded text-right m-0"  style="background-color:#99073b; color:#f1c338;"><span>Start Shopping</span> <i class="icon-angle-right"></i></a></div>
+											</li>
+										</ul>
+									</div>
+								</div><!-- END REVOLUTION SLIDER -->
+							</section>
+							<!-- Slider of homepage End -->
+
+
+	<!-- Content
+		============================================= -->
+	<section id="content">
+			           <!-- Fresh Collection 2020 -->
+			     <div class="section bg-transparent">
+				         <div class="mx-auto center bottommargin" style="max-width: 700px">
+							<h2>Men's Collection</h2>
+							<div class="divider divider-sm divider-center text-dark"><i class="icon-hand-holding-heart"></i></div>
+						</div>
+
+			             <div class="container">
+							  <div class="gallery1">
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.0.0.0 %}
+												<div class="gallery-item1" id="{{ all_prod.0.0.0.sr_no }}" >
+														<a href="/product_detail/{{ all_prod.0.0.0.name }}/{{ all_prod.0.0.0.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.0.0.0.image1.url }}">	</a>
+														<a href="/product_detail/{{ all_prod.0.0.0.name }}/{{ all_prod.0.0.0.sr_no }}/"><button class="btn">Shop Now</button></a></a>
+													{% if all_prod.0.0.0.stock < 1 %}
+														<script type="text/javascript">grayfunc1("{{ all_prod.0.0.0.sr_no }}");</script>
+													{% endif %}
+
+														
+												</div>
+												{% endif %}
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.0.0.1 %}
+
+														<div class="gallery-item1" id="{{ all_prod.0.0.1.sr_no }}">
+															<a href="/product_detail/{{ all_prod.0.0.1.name }}/{{ all_prod.0.0.1.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.0.0.1.image1.url }}">	</a>
+															<a href="/product_detail/{{ all_prod.0.0.1.name }}/{{ all_prod.0.0.1.sr_no }}/"><button class="btn">Shop Now</button></a></a></a>
+																{% if all_prod.0.0.1.stock < 1 %}
+																<script type="text/javascript">grayfunc1("{{ all_prod.0.0.1.sr_no }}");</script>
+															{% endif %}
+														</div>
+
+												{% endif %}
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.0.0.2 %}
+														<div class="gallery-item1" id="{{ all_prod.0.0.2.sr_no }}">
+															<a href="/product_detail/{{ all_prod.0.0.2.name }}/{{ all_prod.0.0.2.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.0.0.2.image1.url }}">	</a>
+															<a href="/product_detail/{{ all_prod.0.0.2.name }}/{{ all_prod.0.0.2.sr_no }}/"><button class="btn">Shop Now</button></a></a>	</a>
+																	{% if all_prod.0.0.2.stock < 1 %}
+																<script type="text/javascript">grayfunc1("{{ all_prod.0.0.2.sr_no }}");</script>
+															{% endif %}
+
+														</div>
+												{% endif %}
+									        </div>
+			            </div>
+				</div>
+	<!-- End of fresh collection 2020 -->
+         <!-- Start Recommended For You -->
+			    <!-- Start Recommended For You -->
+				<div class="container clearfix">
+					<div class="clear"></div>
+					<div class="tabs topmargin-lg clearfix" id="tab-3">
+						<ul class="tab-nav clearfix">
+							<li><a href="#tabs-9">New Arrivals</a></li>
+							<li><a href="#tabs-10">Best sellers</a></li>
+							<li><a href="#tabs-11">You may like</a></li>
+						</ul>
+						<div class="tab-container">
+								<div class="tab-content" id="tabs-9">
+
+							<div class="container">
+							<div class="gallery1">
+								{% for new_prod in NA_prod %}
+								<div class="gallery-item1" id="{{ new_prod.id }}">
+									<a href="/product_detail/{{ new_prod.name }}/{{ new_prod.sr_no }}/"><img class="gallery-image1" src="{{ new_prod.image1.url }}"></a>
+									<a href="/product_detail/{{ new_prod.name }}/{{ new_prod.sr_no }}/"><button class="btn">Shop Now</button></a></a>
+									{% if new_prod.stock < 1 %}
+										<script type="text/javascript">grayfunc1("{{ new_prod.id }}");</script>
+									{% endif %}
+								</div>
+								{% endfor %}
+
+
+
+
+							</div>
+						</div>
+
+							</div>
+
+								<div class="tab-content" id="tabs-10">
+
+								<div class="container">
+							<div class="gallery1">
+								{% for best_prod in BS_prod %}
+								<div class="gallery-item1"id="{{ best_prod.id }}">
+									<a href="/product_detail/{{ best_prod.name }}/{{ best_prod.sr_no }}/"><img class="gallery-image1" src="{{ best_prod.image1.url }}"></a>
+									<a href="/product_detail/{{ best_prod.name }}/{{ best_prod.sr_no }}/"><button class="btn">Shop Now</button></a>
+									{% if best_prod.stock < 1 %}
+										<script type="text/javascript">grayfunc1("{{ best_prod.id }}");</script>
+									{% endif %}
+								</div>
+								{% endfor %}
+
+
+							</div>
+						</div>
+
+
+							</div>
+
+								<div class="tab-content" id="tabs-11">
+
+								<div class="container">
+								<div class="gallery1">
+								{% for yml_prod in YML_prod %}
+								<div class="gallery-item1"id="{{ yml_prod.id }}">
+									<a href="/product_detail/{{ yml_prod.name }}/{{ yml_prod.sr_no }}/"><img class="gallery-image1" src="{{ yml_prod.image1.url }}"></a>
+									<a href="/product_detail/{{ yml_prod.name }}/{{ yml_prod.sr_no }}/"><button class="btn">Shop Now</button></a>
+									{% if yml_prod.stock < 1 %}
+										<script type="text/javascript">grayfunc1("{{ yml_prod.id }}");</script>
+									{% endif %}
+								</div>
+								{% endfor %}
+
+
+							</div>
+						</div>
+
+
+							</div>
+				        </div>
+			    </div>
+       <!-- End Recommended For You -->
+       <!-- End Recommended For You -->
+
+					   <!--Start Womens Collection -->
+					               <div class="section bg-transparent">
+						               <div class="mx-auto center bottommargin" style="max-width: 700px">
+										  <h2>Women's Collection</h2>
+										  <div class="divider divider-sm divider-center text-dark"><i class="icon-hand-holding-heart"></i></div>
+									   </div>
+
+					                   <div class="container">
+					            	        <div class="gallery1">
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.1.0.0 %}
+												<div class="gallery-item1" id="{{ all_prod.1.0.0.sr_no }}">
+														<a href="/product_detail/{{ all_prod.1.0.0.name }}/{{ all_prod.1.0.0.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.1.0.0.image1.url }}">	</a>
+														<a href="/product_detail/{{ all_prod.1.0.0.name }}/{{ all_prod.1.0.0.sr_no }}/"><button class="btn">Shop Now</button></a></a>	</a>
+													{% if all_prod.1.0.0.stock < 1 %}
+															<script type="text/javascript">grayfunc1("{{ all_prod.1.0.0.sr_no }}");</script>
+														{% endif %}
+												</div>
+												{% endif %}
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.1.0.1 %}
+
+														<div class="gallery-item1" id="{{ all_prod.1.0.1.sr_no }}">
+															<a href="/product_detail/{{ all_prod.1.0.1.name }}/{{ all_prod.1.0.1.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.1.0.1.image1.url }}">	</a>
+															<a href="/product_detail/{{ all_prod.1.0.1.name }}/{{ all_prod.1.0.1.sr_no }}/"><button class="btn">Shop Now</button></a></a>	</a>
+														{% if all_prod.1.0.1.stock < 1 %}
+															<script type="text/javascript">grayfunc1("{{ all_prod.1.0.1.sr_no }}");</script>
+														{% endif %}
+														</div>
+
+												{% endif %}
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.1.0.2 %}
+														<div class="gallery-item1" id="{{ all_prod.1.0.2.sr_no }}">
+															<a href="/product_detail/{{ all_prod.1.0.2.name }}/{{ all_prod.1.0.2.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.1.0.2.image1.url }}">	</a>
+															<a href="/product_detail/{{ all_prod.1.0.2.name }}/{{ all_prod.1.0.2.sr_no }}/"><button class="btn">Shop Now</button></a></a></a>
+														{% if all_prod.1.0.2.stock < 1 %}
+															<script type="text/javascript">grayfunc1("{{ all_prod.1.0.2.sr_no }}");</script>
+														{% endif %}
+														</div>
+												{% endif %}
+									        </div>
+									    </div>
+					              </div>
+					   <!--End Womens Collection -->
+			<!-- ======================Our Fetures ======================= -->
+			   <div class="section bg-transparent">
+				         <div class="mx-auto center bottommargin" style="max-width: 700px">
+							<h2>Our Features</h2>
+							<div class="divider divider-sm divider-center text-dark"><i class="icon-hand-holding-heart"></i></div>
+			    </div>
+				<div class="container">
+					    <div class="section section-features bg-transparent mt-0 p-0 clearfix">
+									<div class="container clearfix">
+										<div class="row col-mb-50 col-mb-lg-80">
+											<div class="col-md-4">
+												<div class="feature-box media-box">
+													<div class="fbox-icon position-relative mb-4">
+														<i class="icon-bullseye"></i>
+													</div>
+													<div class="fbox-content">
+														<h3 class="font-weight-semibold">Our Mission</h3>
+														<p class="text-muted">Our Mission at Ashu Di Hatti is to make fashion affordable for everyone. Shop with us for the latest and chic fashion wear.”</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="feature-box media-box">
+													<div class="fbox-icon position-relative mb-4" >
+														<i class="icon-thumbs-up2"></i>
+													</div>
+													<div class="fbox-content">
+														<h3 class="font-weight-semibold">100% Original</h3>
+														<p class="text-muted">Be assured about the quality of the products. We only sell 100% original and exclusive designs.</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="feature-box media-box">
+													<div class="fbox-icon position-relative mb-4" >
+														<i class="icon-shop"></i>
+													</div>
+													<div class="fbox-content">
+														<h3 class="font-weight-semibold">Live Shopping</h3>
+														<p class="text-muted">Stay updated with the latest fashion wear. Join our Facebook and YouTube live sessions every day!!!</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="feature-box media-box">
+													<div class="fbox-icon position-relative mb-4">
+														<i class="icon-credit-cards"></i>
+													</div>
+													<div class="fbox-content">
+														<h3 class="font-weight-semibold">Payment Options</h3>
+														<p class="text-muted">We have easy payment options. Credit Card, Debit Card, Google Pay, Net Banking Facility, PayPal, Paytm, and UPI, you can pay using any of these.</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="feature-box media-box">
+													<div class="fbox-icon position-relative mb-4">
+														<i class="icon-line2-globe"></i>
+													</div>
+													<div class="fbox-content">
+														<h3 class="font-weight-semibold">Shipping world-wide</h3>
+														<p class="text-muted">Ashu Di Hatti is a global brand. Wherever you are, we ship everywhere across the globe. Stay close to your desi roots, only with Ashu Di Hatti!!!
+</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="feature-box media-box">
+													<div class="fbox-icon position-relative mb-4" >
+														<i class="icon-home1"></i>
+													</div>
+													<div class="fbox-content">
+														<h3 class="font-weight-semibold">Our Company’s values</h3>
+														<p class="text-muted">Our clients are and will always be our priority. A happy and satisfied client is what keeps us motivated to deliver you the best quality at unbelievable prices.
+ </p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+
+					   <!--Start Handlooms Collection -->
+					   <div class="section bg-transparent">
+						               <div class="mx-auto center bottommargin" style="max-width: 700px">
+										  <h2>Handloom's Collection</h2>
+										  <div class="divider divider-sm divider-center text-dark"><i class="icon-hand-holding-heart"></i></div>
+										 </div>
+					                   <div class="container">
+										   <div class="gallery1">
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.2.0.0 %}
+												<div class="gallery-item1"id="{{ all_prod.2.0.0.sr_no }}">
+														<a href="/product_detail/{{ all_prod.2.0.0.name }}/{{ all_prod.2.0.0.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.2.0.0.image1.url }}">	</a>
+														<a href="/product_detail/{{ all_prod.2.0.0.name }}/{{ all_prod.2.0.0.sr_no }}/"><button class="btn">Shop Now</button></a></a></a>
+														{% if all_prod.2.0.0.stock < 1 %}
+															<script type="text/javascript">grayfunc1("{{ all_prod.2.0.0.sr_no }}");</script>
+														{% endif %}
+												</div>
+												{% endif %}
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.2.0.1 %}
+
+														<div class="gallery-item1" id="{{ all_prod.2.0.1.sr_no }}">
+															<a href="/product_detail/{{ all_prod.2.0.1.name }}/{{ all_prod.2.0.1.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.2.0.1.image1.url }}">	</a>
+															<a href="/product_detail/{{ all_prod.2.0.1.name }}/{{ all_prod.2.0.1.sr_no }}/"><button class="btn">Shop Now</button></a></a></a>
+															{% if all_prod.2.0.1.stock < 1 %}
+															<script type="text/javascript">grayfunc1("{{ all_prod.2.0.1.sr_no }}");</script>
+														{% endif %}
+														</div>
+
+												{% endif %}
+												<!-- Photographs
+												============================================= -->
+												{% if all_prod.2.0.2 %}
+														<div class="gallery-item1" id="{{ all_prod.2.0.2.sr_no }}">
+															<a href="/product_detail/{{ all_prod.2.0.2.name }}/{{ all_prod.2.0.2.sr_no }}/"><img class="gallery-image1" src="{{ all_prod.2.0.2.image1.url }}">	</a>
+															<a href="/product_detail/{{ all_prod.2.0.2.name }}/{{ all_prod.2.0.2.sr_no }}/"><button class="btn">Shop Now</button></a></a>
+														{% if all_prod.2.0.2.stock < 1 %}
+															<script type="text/javascript">grayfunc1("{{ all_prod.2.0.2.sr_no }}");</script>
+														{% endif %}
+														</div>
+												{% endif %}
+									        </div>
+
+									    </div>
+					              </div>
+					   <!--End Handlooms Collection -->
+						<!-- ======================Brand ======================= -->
+						<div class="row mt-5">
+							<div class="col-12">
+										<div class="mx-auto center bottommargin" style="max-width: 700px">
+										  <h2>Our Brands</h2>
+										  <div class="divider divider-sm divider-center text-dark"><i class="icon-hand-holding-heart"></i></div>
+										</div>
+								<div id="oc-clients-full" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="5" data-items-xl="7">
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/1.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/2.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/3 (1).jpg' %}" alt="Clients"></a></div>
+			   											<div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/4.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/5.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/6.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/7.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/8.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/9.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/10.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/11.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/12.jpg' %}" alt="Clients"></a></div>
+			                                           <div class="oc-item"><a href="#"><img src="{% static 'images/aashuimage/logo/13.jpg' %}" alt="Clients"></a></div>
+			                    </div>
+						</div>
+			    </div>
+
+
+    </section><!-- #content end -->
+
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+
+</script>
+{% endblock %}
+

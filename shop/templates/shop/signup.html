@@ -1,0 +1,197 @@
+{% extends './basic.html' %}
+{% load static %}
+
+{% block title %}| Signup{% endblock %}
+
+ {% block head %}  {% endblock %}
+
+{% block style %}  {% endblock %}
+
+  {% block body %}
+ <section id="slider" class="slider-element  min-vh-100 dark">
+        <div class="slider-inner" style="background-image: url({% static 'images/aashuimage/login.jpg' %});">
+  <div class="container center">
+<div class="slider-caption slider-caption-center"  >
+
+
+<div class="tabs mx-auto mb-0 clearfix" id="tab-login-login" >
+<ul class="tab-nav tab-nav2 center clearfix">
+<li class="inline-block"><a href="#tab-login">Login</a></li>
+<li class="inline-block"><a href="#tab-register">Register</a></li>
+</ul>
+
+    <div class="tab-content" id="tab-login">
+        <div class="card mx-auto rounded-0 border-0" style="max-width: 400px; background-color:rgba(100, 100, 100, 0.5); ">
+             <div>
+          
+              <form   method="post" action="/login/">    {% csrf_token %}
+                <i class="i-plain i-xlarge icon-user float-none mx-auto mb-4" data-animate="fadeInUp"></i>
+
+                 
+                <div class="col-12 form-group">                                 
+                  <input type="text" placeholder="  Enter Email Id" name="email" pattern="[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$" class="form-control" required >
+                 </div> 
+
+                  <div class="col-12 form-group">                                 
+                   <input type="password" placeholder="  Current Password" id="password1" name="password"  class="form-control" required >
+                     <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password1" style="margin-left:220px;   display: flex; margin-top: -30px;color:#99073b"></span> 
+                   </div>   
+
+                     <div class="col-12 form-group">               
+                      <button  class="btn btn-sm animated-button thar-three gradient-horizon" type="submit" >submit</button>                                                 
+                       </div>
+                       <a href="/login/forget_password/"  class=" thar-three " >Forgot Password</a>
+               </form>    
+            </div>
+        </div>
+   </div>
+
+
+
+
+<div class="tab-content" id="tab-register">
+        <div class="card mx-auto rounded-0 border-0" style="max-width: 500px; background-color:rgba(100, 100, 100, 0.5)  ;">
+             <div>
+
+                   <form action="/signup/" method="post"> {% csrf_token %}
+               <i class="i-plain i-xlarge icon-registered float-none mx-auto mb-4" data-animate="fadeInDown"></i>
+                    <div class="col-12 form-group">
+                      <input type="text" id="register-form-name"  placeholder="Enter username" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)) ' id="username" name="name" class="form-control" required>
+                   
+                    </div>
+
+
+                    <div class="col-12 form-group">
+                    <input type="text" placeholder="Enter Email Id" pattern="[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$" name="email" class="form-control" required >
+                    </div>
+
+                    <div class="col-12 form-group">
+                    <input  maxlength=10 onKeyPress="return numbersonly(this, event)" name="phone" placeholder="Enter Phone Number" class="form-control" id="phone" required >
+                    </div>
+
+                    <div class="col-12 form-group">
+
+                    <input type="password" placeholder="password" id="passwordanil" name="password" class="form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-passwordanil" style="margin-left:190px;   display: flex; margin-top: -30px;color:#99073b"></span>               
+                          </div>
+
+                     <div class="col-12 form-group">
+                    <input type="password" placeholder="confirm password" id="confirmpasswordkumar" name="confirmpassword"  class="form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-passwordkumar" style="margin-left:190px;   display: flex; margin-top: -30px;color:#99073b"></span>             
+                    </div>
+
+                    <div class="col-12 form-group">
+                        <button class="btn btn-sm animated-button thar-three gradient-horizon" onclick="Validate()" type="submit"> Submit</button>
+
+                  </div>
+              </form>
+
+            </div>
+        </div>
+   </div>
+
+
+
+
+  </div>
+</div>
+<div>
+</div>
+    </section><!-- #slider end -->
+
+    {% endblock %}
+
+{% block js %}
+
+
+<script>
+//login eye icon
+$(document).on('click', '.toggle-password1', function() {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $("#password1");
+  input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+  });
+  
+  //register eye icon
+$(document).on('click', '.toggle-passwordanil', function() {
+$(this).toggleClass("fa-eye fa-eye-slash");
+var input = $("#passwordanil");
+input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+});
+
+
+$(document).on('click', '.toggle-passwordkumar', function() {
+$(this).toggleClass("fa-eye fa-eye-slash");
+var input = $("#confirmpasswordkumar");
+input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+});
+
+
+
+</script>
+
+<script>
+
+
+function Validate()
+{
+
+var fname=document.getElementById("email").value;
+var lname=document.getElementById("email").value;
+var username=document.getElementById("email").value;
+
+
+var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmpassword").value;
+    if (password != confirmPassword)
+    {
+        alert("Passwords do not match.");
+
+    }
+
+var email=document.getElementById("email").value;
+var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+
+if (reg.test(email) == false)
+    {
+        alert('Invalid Email Address');
+    }
+}
+
+function numbersonly(myfield, e, dec)
+{
+
+var key;
+var keychar;
+if (window.event)
+key = window.event.keyCode;
+else if (e)
+key = e.which;
+else
+return true;
+
+keychar = String.fromCharCode(key);
+
+
+if ((key==null) || (key==0) || (key==8) || (key==9) || (key==13) || (key==27) )
+return true;
+else if ((("0123456789").indexOf(keychar) > -1))
+return true;
+else if (dec && (keychar == ".")) { myfield.form.elements[dec].focus(); return false; } else return false; }
+
+
+
+
+</script>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

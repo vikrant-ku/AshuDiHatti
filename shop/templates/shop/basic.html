@@ -1,0 +1,573 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+	<link rel="icon" href="{%static 'images/aashuimage/fav.png' %}" type="image/x-icon"/>
+	<!-- Stylesheets
+	============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+	<!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'include/rs-plugin/css/settings.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static 'include/rs-plugin/css/layers.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'include/rs-plugin/css/navigation.css' %}">
+	<!-- harjeet mam about and contact css -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link href="{% static 'css/abcss/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
+	 <link href="{% static 'css/abcss/templatemo-diagoona.css' %}" rel="stylesheet" />
+	 
+	 <link rel="stylesheet" href="demos/pet/pet.css" type="text/css" />
+	 <link rel="stylesheet" href="demos/pet/css/fonts.css" type="text/css" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
+  	<link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css">
+	<!--	image zoom  -->
+    <link rel="stylesheet" href="{% static 'dist/drift-basic.css' %}">
+    <script src="{% static 'dist/Drift.js' %}"></script>
+	<!--	image zoom end-->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Ashu Di Hatti{% block title %} {% endblock %}</title>
+
+
+
+
+    <style>
+
+		.revo-slider-emphasis-text {
+			font-size: 58px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			font-family: 'Poppins', sans-serif;
+			padding: 15px 20px;
+			border-top: 2px solid #FFF;
+			border-bottom: 2px solid #FFF;
+		}
+
+		.revo-slider-desc-text {
+			font-size: 20px;
+			font-family: 'Lato', sans-serif;
+			width: 650px;
+			text-align: center;
+			line-height: 1.5;
+		}
+
+		.revo-slider-caps-text {
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 3px;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.tp-video-play-button { display: none !important; }
+
+		.tp-caption { white-space: nowrap; }
+	</style>
+<style>
+	.black a img {
+    filter: grayscale(1);
+}
+</style>
+
+	{% block style %}   {% endblock %}
+
+    {% block head %}    {% endblock %}
+
+
+
+	 <script>
+		 function grayfunc(e,n)
+    		 {
+			 	var tempvar
+				tempvar = document.getElementById(n).getAttribute('value')
+				if ( tempvar = 'Out'){
+					document.getElementById(e).className+=' black';
+					tempvar = ""
+					}
+			}
+	</script>
+<!--	toast success -->
+	<style>
+/* file */
+.jq-toast-wrap,.jq-toast-wrap *{margin:0;padding:0}.jq-toast-wrap{display:block;position:fixed;width:250px;pointer-events:none!important;letter-spacing:normal;z-index:9000!important}.jq-toast-wrap.bottom-left{bottom:20px;left:20px}.jq-toast-wrap.bottom-right{bottom:20px;right:40px}.jq-toast-wrap.top-left{top:20px;left:20px}.jq-toast-wrap.top-right{top:20px;right:40px}.jq-toast-single{display:block;width:100%;padding:10px;margin:0 0 5px;border-radius:4px;font-size:12px;font-family:arial,sans-serif;line-height:17px;position:relative;pointer-events:all!important;background-color:#444;color:#fff}.jq-toast-single h2{font-family:arial,sans-serif;font-size:14px;margin:0 0 7px;background:0 0;color:inherit;line-height:inherit;letter-spacing:normal}.jq-toast-single a{color:#eee;text-decoration:none;font-weight:700;border-bottom:1px solid #fff;padding-bottom:3px;font-size:12px}.jq-toast-single ul{margin:0 0 0 15px;background:0 0;padding:0}.jq-toast-single ul li{list-style-type:disc!important;line-height:17px;background:0 0;margin:0;padding:0;letter-spacing:normal}.close-jq-toast-single{position:absolute;top:3px;right:7px;font-size:14px;cursor:pointer}.jq-toast-loader{display:block;position:absolute;top:-2px;height:5px;width:0;left:0;border-radius:5px;background:red}.jq-toast-loaded{width:100%}.jq-has-icon{padding:10px 10px 10px 50px;background-repeat:no-repeat;background-position:10px}.jq-icon-info{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=);background-color:#31708f;color:#d9edf7;border-color:#bce8f1}.jq-icon-warning{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=);background-color:#8a6d3b;color:#fcf8e3;border-color:#faebcc}.jq-icon-error{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=);background-color:#a94442;color:#f2dede;border-color:#ebccd1}.jq-icon-success{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==);color:#dff0d8;background-color:#3c763d;border-color:#d6e9c6}
+
+
+</style>
+<script>
+/* file */
+"function"!=typeof Object.create&&(Object.create=function(t){function o(){}return o.prototype=t,new o}),function(t,o){"use strict";var i={_positionClasses:["bottom-left","bottom-right","top-right","top-left","bottom-center","top-center","mid-center"],_defaultIcons:["success","error","info","warning"],init:function(o){this.prepareOptions(o,t.toast.options),this.process()},prepareOptions:function(o,i){var s={};"string"==typeof o||o instanceof Array?s.text=o:s=o,this.options=t.extend({},i,s)},process:function(){this.setup(),this.addToDom(),this.position(),this.bindToast(),this.animate()},setup:function(){var o="";if(this._toastEl=this._toastEl||t("<div></div>",{"class":"jq-toast-single"}),o+='<span class="jq-toast-loader"></span>',this.options.allowToastClose&&(o+='<span class="close-jq-toast-single">&times;</span>'),this.options.text instanceof Array){this.options.heading&&(o+='<h2 class="jq-toast-heading">'+this.options.heading+"</h2>"),o+='<ul class="jq-toast-ul">';for(var i=0;i<this.options.text.length;i++)o+='<li class="jq-toast-li" id="jq-toast-item-'+i+'">'+this.options.text[i]+"</li>";o+="</ul>"}else this.options.heading&&(o+='<h2 class="jq-toast-heading">'+this.options.heading+"</h2>"),o+=this.options.text;this._toastEl.html(o),this.options.bgColor!==!1&&this._toastEl.css("background-color",this.options.bgColor),this.options.textColor!==!1&&this._toastEl.css("color",this.options.textColor),this.options.textAlign&&this._toastEl.css("text-align",this.options.textAlign),this.options.icon!==!1&&(this._toastEl.addClass("jq-has-icon"),-1!==t.inArray(this.options.icon,this._defaultIcons)&&this._toastEl.addClass("jq-icon-"+this.options.icon))},position:function(){"string"==typeof this.options.position&&-1!==t.inArray(this.options.position,this._positionClasses)?"bottom-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,bottom:20}):"top-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,top:20}):"mid-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,top:t(o).outerHeight()/2-this._container.outerHeight()/2}):this._container.addClass(this.options.position):"object"==typeof this.options.position?this._container.css({top:this.options.position.top?this.options.position.top:"auto",bottom:this.options.position.bottom?this.options.position.bottom:"auto",left:this.options.position.left?this.options.position.left:"auto",right:this.options.position.right?this.options.position.right:"auto"}):this._container.addClass("bottom-left")},bindToast:function(){var t=this;this._toastEl.on("afterShown",function(){t.processLoader()}),this._toastEl.find(".close-jq-toast-single").on("click",function(o){o.preventDefault(),"fade"===t.options.showHideTransition?(t._toastEl.trigger("beforeHide"),t._toastEl.fadeOut(function(){t._toastEl.trigger("afterHidden")})):"slide"===t.options.showHideTransition?(t._toastEl.trigger("beforeHide"),t._toastEl.slideUp(function(){t._toastEl.trigger("afterHidden")})):(t._toastEl.trigger("beforeHide"),t._toastEl.hide(function(){t._toastEl.trigger("afterHidden")}))}),"function"==typeof this.options.beforeShow&&this._toastEl.on("beforeShow",function(){t.options.beforeShow()}),"function"==typeof this.options.afterShown&&this._toastEl.on("afterShown",function(){t.options.afterShown()}),"function"==typeof this.options.beforeHide&&this._toastEl.on("beforeHide",function(){t.options.beforeHide()}),"function"==typeof this.options.afterHidden&&this._toastEl.on("afterHidden",function(){t.options.afterHidden()})},addToDom:function(){var o=t(".jq-toast-wrap");if(0===o.length?(o=t("<div></div>",{"class":"jq-toast-wrap"}),t("body").append(o)):(!this.options.stack||isNaN(parseInt(this.options.stack,10)))&&o.empty(),o.find(".jq-toast-single:hidden").remove(),o.append(this._toastEl),this.options.stack&&!isNaN(parseInt(this.options.stack),10)){var i=o.find(".jq-toast-single").length,s=i-this.options.stack;s>0&&t(".jq-toast-wrap").find(".jq-toast-single").slice(0,s).remove()}this._container=o},canAutoHide:function(){return this.options.hideAfter!==!1&&!isNaN(parseInt(this.options.hideAfter,10))},processLoader:function(){if(!this.canAutoHide()||this.options.loader===!1)return!1;var t=this._toastEl.find(".jq-toast-loader"),o=(this.options.hideAfter-400)/1e3+"s",i=this.options.loaderBg,s=t.attr("style")||"";s=s.substring(0,s.indexOf("-webkit-transition")),s+="-webkit-transition: width "+o+" ease-in;                       -o-transition: width "+o+" ease-in;                       transition: width "+o+" ease-in;                       background-color: "+i+";",t.attr("style",s).addClass("jq-toast-loaded")},animate:function(){var t=this;if(this._toastEl.hide(),this._toastEl.trigger("beforeShow"),"fade"===this.options.showHideTransition.toLowerCase()?this._toastEl.fadeIn(function(){t._toastEl.trigger("afterShown")}):"slide"===this.options.showHideTransition.toLowerCase()?this._toastEl.slideDown(function(){t._toastEl.trigger("afterShown")}):this._toastEl.show(function(){t._toastEl.trigger("afterShown")}),this.canAutoHide()){var t=this;o.setTimeout(function(){"fade"===t.options.showHideTransition.toLowerCase()?(t._toastEl.trigger("beforeHide"),t._toastEl.fadeOut(function(){t._toastEl.trigger("afterHidden")})):"slide"===t.options.showHideTransition.toLowerCase()?(t._toastEl.trigger("beforeHide"),t._toastEl.slideUp(function(){t._toastEl.trigger("afterHidden")})):(t._toastEl.trigger("beforeHide"),t._toastEl.hide(function(){t._toastEl.trigger("afterHidden")}))},this.options.hideAfter)}},reset:function(o){"all"===o?t(".jq-toast-wrap").remove():this._toastEl.remove()},update:function(t){this.prepareOptions(t,this.options),this.setup(),this.bindToast()}};t.toast=function(t){var o=Object.create(i);return o.init(t,this),{reset:function(t){o.reset(t)},update:function(t){o.update(t)}}},t.toast.options={text:"",heading:"",showHideTransition:"fade",allowToastClose:!0,hideAfter:3e3,loader:!0,loaderBg:"#9EC600",stack:5,position:"bottom-left",bgColor:!1,textColor:!1,textAlign:"left",icon:!1,beforeShow:function(){},afterShown:function(){},beforeHide:function(){},afterHidden:function(){}}}(jQuery,window,document);
+
+
+
+/* Starts from here */
+function error(e){
+  $.toast({
+  heading: 'Error',
+  text: e,
+  icon: 'error',
+  loader: true,
+  loaderBg: '#fff',
+  showHideTransition: 'plain',
+  hideAfter: 3000,
+   allowToastClose: false,
+  position: {
+    right: 50,
+    top: 30
+  }
+})
+}
+
+function success(e){
+  $.toast({
+    heading:'Success',
+    text:e,
+    icon:'success',
+    loader: true,
+    loaderBg: '#fff',
+    showHideTransition: 'fade',
+    hideAfter: 3000,
+    allowToastClose: false,
+    position: {
+      right:100,
+      top:30
+    }
+  })
+}
+
+
+</script>
+<!--	-->
+
+<!--	toast success end-->
+
+	</head>
+
+
+<body class="stretched">
+	<!-- Document Wrapper
+	============================================= -->
+
+	<div id="wrapper" class="clearfix">
+
+
+	<!-- Document Wrapper
+	============================================= -->
+            {% for message in messages %}
+				{% if message.tags == 'danger' %}
+					<script>error("{{message}}");</script>
+				{% elif message.tags == 'success' %}
+					<script>success("{{message}}");</script>
+				{% endif %}
+
+      {% endfor %}
+    <!-- Top Bar
+				============================================= -->
+				<div id="top-bar">
+
+					<div class="container">
+
+						<div class="row justify-content-between align-items-center">
+							<div class="col-12 col-md-auto">
+								<p class="mb-0 py-2 text-center text-md-left"> Indian Wedding, Ethnic, Sangeet Wear, Salwar Suit, Traditional Dresses & Gowns</p>
+							</div>
+
+							<div class="col-12 col-md-auto pl-0">
+								<ul id="top-social">
+									<li><a href="https://www.facebook.com/Ashu-di-Hatti-phagwara-104793427965220" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+									<li><a href="https://twitter.com/HattiAshu" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
+									<li><a href="https://www.instagram.com/ashudihattiphagwara/" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
+									<li><a href="tel:098720 14014" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">09872014014</span></a></li>
+									<li><a href="mailto:ashudihatti38@gmail.com" class="si-email3"><span class="ts-icon"><i class="icon-envelope-alt"></i></span><span class="ts-text">info@ashudihatti38.com</span></a></li>
+								</ul><!-- #top-social end -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- #top-bar end -->
+					<!-- #Header start-->
+					<header id="header">
+						<div id="header-wrap">
+							<div class="container">
+								<div class="header-row">
+
+									   <!-- Logo
+			                    ============================================= -->
+			                    <div id="logo" class="ml-auto ml-md-0">
+			                        <a href="/" class="standard-logo" data-dark-logo="{% static 'images/aashuimage/logo1.png' %}"><img class="mx-auto" src="{% static 'images/aashuimage/logo1.png' %}" alt=""></a>
+			                        <a href="/" class="retina-logo" data-dark-logo="{% static 'images/aashuimage/logo1.png' %}"><img class="mx-auto" src="{% static 'images/aashuimage/logo1.png' %}" alt="Canvas Logo"></a>
+			                    </div><!-- #logo end -->
+
+									<div class="header-misc">
+
+										<!-- Top Search
+										============================================= -->
+										<div id="top-search" class="header-misc-icon">
+											<a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+										</div><!-- #top-search end -->
+
+										<!-- Top Cart
+										============================================= -->
+										<div class="dropdown mx-3 mr-lg-0">
+								<a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i></a>
+
+								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+									{% if 'customer_id' in request.session %}
+										<a class="dropdown-item text-left" href="/profile/">{{ request.session.customer_name }}</a>
+										<a class="dropdown-item text-left" href="/cart/">View Cart <span class="badge badge-pill badge-secondary float-right" style="margin-top: 3px;">{{len}}</span></a>
+										<a class="dropdown-item text-left" href="/profile/change_password/">Change Password</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item text-left" href="/logout/">Logout <i class="icon-signout"></i></a>
+									{% else %}
+										<a class="dropdown-item text-left" href="/login/">login <i class="icon-signout"></i></a>
+									{% endif %}
+								</ul>
+							</div>
+<!-- #top-cart end -->
+
+									</div>
+
+									<div id="primary-menu-trigger">
+										<svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+									</div>
+
+									<!-- Primary Navigation
+									============================================= -->
+									<nav class="primary-menu">
+										<ul class="menu-container">
+
+											{% for cat,subcat in category.items %}
+												<li class="menu-item" class="dropdown-menu" ><a class="menu-link" href="/shop/{{cat.name}}"><div>{{cat}}</div></a>
+
+												{% if subcat %}
+												<ul class="sub-menu-container">
+													{% for subcat_name,subcat_typ in subcat.items %}
+													<li class="menu-item"><a class="menu-link" href="/shop/{{cat.name}}/{{subcat_name.name}}"><div>{{cat}} - {{subcat_name.name}}</div></a>
+														{% if subcat_typ %}
+														<ul class="sub-menu-container">
+															{% for i in subcat_typ %}
+																{% for prod in i %}
+															<li class="menu-item"><a class="menu-link" href="/shop/{{cat.name}}/{{subcat_name.name}}/{{prod}}"><div>{{subcat_name.name}} - {{prod}}</div></a></li>
+																{%  endfor %}
+															{% endfor %}
+														</ul>
+														{% endif %}
+													</li>
+													{% endfor %}
+												</ul>
+												{% endif %}
+											</li>
+											{% endfor %}
+
+											<li class="menu-item"  class="dropdown-item text-left"><a class="menu-link"  href="/about_us/"><div>About</div></a></li>
+											<li class="menu-item " ><a class="menu-link" href="/facebookLive/"><div>FB Live </div></a></li>
+					                    </ul>
+									</nav><!-- #primary-menu end -->
+
+									<form class="top-search-form" action="/search/" method="get">
+										<input type="text" name="q" class="form-control" value=""  autocomplete="off">
+									</form>
+
+								</div>
+							</div>
+						</div>
+						<div class="header-wrap-clone"></div>
+					</header>
+
+            {% block body %}
+
+            {% endblock %}
+
+      <!-- Footer
+		============================================= -->
+		<footer id="footer" class="">
+
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+				<div class="container">
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
+
+					<div class="row col-mb-50">
+						<div class="col-lg-6">
+
+							<div class="widget clearfix">
+
+
+
+								<div class="py-2">
+									<div class="row col-mb-30">
+										<div class="col-6">
+											<address class="mb-0">
+												<h4 style="color:white">Location</h4>
+													Ashu Di Hatti, Opp Bus Stand, Near Axis Bank<br>
+													Cinema Road, Phagwara, Punjab 144401, India<br>
+											</address>
+										</div>
+										<div class="col-6" >
+											<h4 style="color:white">Phone</h4>
+											<a href="tel: 7696270667 " style="color: #FFF;">7696270667</a><br>
+											<a href="tel: 7681920067" style="color: #FFF;">7681920067</a><br>
+											<a href="tel: 7696270267" style="color: #FFF;">7696270267</a><br>
+											<a href="tel: 7696268367" style="color: #FFF;">7696268367</a><br>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-sm-6 col-lg-3">
+								   <h4 style="color:white">Quick Links</h4>
+
+											<a href="/" style="color: #FFF;">Home</a><br>
+											<a href="/about_us/" style="color: #FFF;">About</a><br>
+											<a href="/faqs/" style="color: #FFF;">FAQs</a><br>
+											<a href="/contact_us/" style="color: #FFF;">Contact</a><br>
+
+
+
+				          		</div>
+
+
+						<div class="col-sm-6 col-lg-3">
+
+							<div class="widget quick-contact-widget form-widget clearfix">
+
+							<a href="/contact_us/"><h4 style="color:white">Contact Us</h4></a>
+
+								<div class="form-result"></div>
+								<iframe class="googlebaba" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3411.9121398608695!2d75.76485791547056!3d31.223163468880742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391af5b123c8d061%3A0x56c6c8ab4f5ae10b!2sAashu%20di%20hatti!5e0!3m2!1sen!2sin!4v1607499295381!5m2!1sen!2sin" width="700" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+							</div>
+
+							<a href="https://www.facebook.com/Ashu-di-Hatti-phagwara-104793427965220" class="social-icon si-small si-rounded topmargin-sm si-facebook" style="color: #FFF;">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="https://twitter.com/HattiAshu" class="social-icon si-small si-rounded topmargin-sm si-twitter" style="color: #FFF;">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="tel:098720 14014" class="social-icon si-small si-rounded topmargin-sm si-call" style="color: #FFF;">
+								<i class="icon-call"></i>
+								<i class="icon-call"></i>
+							</a>
+							<a href="mailto:info@ashudihatti.com" class="social-icon si-small si-rounded topmargin-sm si-envelope" style="color: #FFF;">
+								<i class="icon-envelope"></i>
+								<i class="icon-envelope"></i>
+							</a>
+
+							<a href="https://www.instagram.com/ashudihattiphagwara/" class="social-icon si-small si-rounded topmargin-sm si-instagram" style="color: #FFF;">
+								<i class="icon-instagram"></i>
+								<i class="icon-instagram"></i>
+							</a>
+
+						</div>
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+				<hr>
+
+					<div class="row col-mb-30">
+
+						<div class="col-md-6 text-center text-md-left" style="color:white">
+							Copyrights &copy; 2020 All Rights Reserved by <a href="https://rohartech.com/" style="color:#ffffff">Rohar Technologies.</a><br>
+			<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+				</div>
+
+						<div class="col-md-6 text-center text-md-right">
+							<div class="d-flex justify-content-center justify-content-md-end">
+								<a href="https://www.facebook.com/rohartechnologies" class="social-icon si-small si-borderless si-facebook" style="color: #FFF;">
+									<i class="icon-facebook"></i>
+									<i class="icon-facebook"></i>
+								</a>
+
+								<a href="https://twitter.com/RoharTechnolog3" class="social-icon si-small si-borderless si-twitter" style="color: #FFF;">
+									<i class="icon-twitter"></i>
+									<i class="icon-twitter"></i>
+								</a>
+								<a href="https://www.instagram.com/rohar_tech/" class="social-icon si-small si-borderless si-instagram" style="color: #FFF;">
+									<i class="icon-instagram"></i>
+									<i class="icon-instagram"></i>
+								</a>
+
+
+								<a href="https://www.pinterest.com/rohartech7902/_created/" class="social-icon si-small si-borderless si-pinterest" style="color: #FFF;">
+									<i class="icon-pinterest"></i>
+									<i class="icon-pinterest"></i>
+								</a>
+
+								<a href="https://au.linkedin.com/company/rohar-technologies" class="social-icon si-small si-borderless si-linkedin" style="color: #FFF;">
+									<i class="icon-linkedin"></i>
+									<i class="icon-linkedin"></i>
+								</a>
+								<a href="https://www.youtube.com/channel/UCVi6ryJbDgeSgjMft_TPBQQ?view_as=subscriber" class="social-icon si-small si-borderless si-youtube" style="color: #FFF;">
+									<i class="icon-youtube"></i>
+									<i class="icon-youtube"></i>
+								</a>
+							</div>
+
+							<div class="clear"></div>
+	</div>
+
+					</div>
+
+				</div>
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+            <!-- #footer end -->
+</div>
+
+	<!-- #wrapper end -->
+
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-line-arrow-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/plugins.min.js' %}"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="{% static 'js/functions.js' %}"></script>
+
+	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+	<script src="{% static 'include/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.video.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.actions.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.migration.min.js' %}"></script>
+	<script src="{% static 'include/rs-plugin/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+
+
+<!--	-->
+
+	<script>
+
+		var tpj=jQuery;
+		tpj.noConflict();
+		var $ = jQuery.noConflict();
+
+		tpj(document).ready(function() {
+
+			var apiRevoSlider = tpj('#rev_slider_ishop').show().revolution(
+			{
+				sliderType:"standard",
+				jsFileLocation:"include/rs-plugin/js/",
+				sliderLayout:"fullwidth",
+				dottedOverlay:"none",
+				delay:9000,
+				navigation: {},
+				responsiveLevels:[1200,992,768,480,320],
+				gridwidth:1140,
+				gridheight:600,
+				lazyType:"none",
+				shadow:0,
+				spinner:"off",
+				autoHeight:"off",
+				disableProgressBar:"on",
+				hideThumbsOnMobile:"off",
+				hideSliderAtLimit:0,
+				hideCaptionAtLimit:0,
+				hideAllCaptionAtLilmit:0,
+				debugMode:false,
+				fallbacks: {
+					simplifyAll:"off",
+					disableFocusListener:false,
+				},
+				navigation: {
+					keyboardNavigation:"off",
+					keyboard_direction: "horizontal",
+					mouseScrollNavigation:"off",
+					onHoverStop:"off",
+					touch:{
+						touchenabled:"on",
+						swipe_threshold: 75,
+						swipe_min_touches: 1,
+						swipe_direction: "horizontal",
+						drag_block_vertical: false
+					},
+
+				}
+			});
+
+			apiRevoSlider.on("revolution.slide.onloaded",function (e) {
+				SEMICOLON.slider.sliderDimensions();
+			});
+
+		}); //ready
+			$(document).ready(changeHeaderColor);
+		$(window).on('resize',changeHeaderColor);
+
+		function changeHeaderColor(){
+			if (jQuery(window).width() > 991.98) {
+				jQuery( "#header" ).hover(
+					function() {
+						if (!$(this).hasClass("sticky-header")) {
+							$( this ).addClass( "hover-light" ).removeClass( "dark" );
+							SEMICOLON.header.logo();
+						}
+						$( "#wrapper" ).addClass( "header-overlay" );
+					}, function() {
+						if (!$(this).hasClass("sticky-header")) {
+							$( this ).removeClass( "hover-light" ).addClass( "dark" );
+							SEMICOLON.header.logo();
+						}
+						$( "#wrapper" ).removeClass( "header-overlay" );
+					}
+				);
+			}
+		};
+
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 2000 && $("#modal-subscribe").attr("displayed") === "false") {
+				$('#modal-subscribe').modal('show');
+				$("#modal-subscribe").attr("displayed", "true");
+			}
+		});
+
+		jQuery('#modal-subscribe-form').on( 'formSubmitSuccess', function(){
+			$("#modal-subscribe").addClass("fadeOutDown");
+			setTimeout(function() { $('#modal-subscribe').modal('hide'); }, 400);
+			$("#modal-subscribe").attr("displayed", "false");
+		});
+	</script>
+
+
+	<!-- ADD-ONS JS FILES -->
+    {% block js %}
+
+
+    {% endblock %}
+
+
+</body>
+</html>
