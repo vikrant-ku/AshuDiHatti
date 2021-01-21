@@ -9,7 +9,7 @@
 <h1>Please do not refresh your page....</h1>
 <form action="https://securegw.paytm.in/theia/processTransaction" method="post" name="paytm">
     {% for key, value in param_dict.items %}
-    {{key}}<input type="text" name="{{key}}" value="{{value}}">
+    {{key}}<input type="hidden" name="{{key}}" value="{{value}}">
     {% endfor %}
 
 
