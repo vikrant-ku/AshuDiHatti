@@ -91,19 +91,4 @@ class Support(View):
         }
         return render(request, 'shop/payment_failure.html', cart_prod)
 
-# def card_len(request):
-#     cart = 0
-#     try:
-#         cart = request.session.get("cart")
-#         if cart != None:
-#             return len(cart)
-#         else:
-#             cart= 0
-#             return cart
-#     except:
-#          return cart
-#
-#
-#
-#
-#
+
